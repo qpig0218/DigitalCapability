@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數位賦能計畫與DECODE框架整合藍圖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .main-title {
+            background: linear-gradient(to right, #005c97, #363795);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #1e3a8a;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card.framework-card {
+            border-left-color: #059669; /* Green for framework */
+        }
+        .card.challenge-card {
+            border-left-color: #d97706; /* Amber for challenges */
+        }
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out; /* Removed padding transition for smoothness */
+        }
+        .card.active .details {
+            /* max-height is now set by JavaScript for accuracy */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .axis-title {
+             border-bottom: 2px solid #363795;
+        }
+        .section-title {
+            border-bottom: 2px solid #059669;
+        }
+        .challenge-title {
+            border-bottom: 2px solid #d97706;
+        }
+        .detail-item {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .detail-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #363795;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- 主要標題 -->
+        <header class="text-center mb-10 md:mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold main-title">數位賦能計畫整合藍圖</h1>
+            <p class="mt-4 text-lg text-gray-600">以 DECODE 框架為理論基礎，規劃三大實踐主軸，培育未來醫療人才。</p>
+        </header>
+
+        <!-- 理論基礎: DECODE 框架 -->
+        <section class="mb-12">
+            <div class="text-center pb-4 mb-6 section-title">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v11.494m-9-5.747h18" /></svg>
+                    理論基礎：DECODE 框架
+                </h2>
+            </div>
+            <div class="card framework-card cursor-pointer active" onclick="toggleCard(this)">
+                <div class="p-5">
+                    <h3 class="text-lg font-bold text-gray-900">什麼是 DECODE 框架？</h3>
+                    <div class="details">
+                        <p class="mt-2 text-gray-600">一套由國際專家共識建立的數位健康能力指引，為醫學教育提供標準化藍圖，應對資訊爆炸、醫療數位化與AI時代的挑戰。框架包含四大核心領域：</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="p-3 bg-emerald-50 rounded-lg"><strong>1. 數位健康中的專業素養：</strong>強調倫理、法規與資訊安全。</div>
+                            <div class="p-3 bg-emerald-50 rounded-lg"><strong>2. 病人與族群數位健康：</strong>聚焦遠距醫療、病人自我管理與健康公平。</div>
+                            <div class="p-3 bg-emerald-50 rounded-lg"><strong>3. 健康資訊系統：</strong>訓練 EMR 等臨床系統的熟練操作與理解。</div>
+                            <div class="p-3 bg-emerald-50 rounded-lg"><strong>4. 健康資料科學：</strong>培養運用數據與 AI 進行決策的能力。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 三大主軸網格布局 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+
+            <!-- 軸線一: 制度與整合 -->
+            <div class="flex flex-col space-y-6">
+                <div class="text-center pb-4 axis-title">
+                    <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center">
+                        <svg class="h-8 w-8 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Z" /></svg>
+                        主軸一：制度與整合
+                    </h2>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">核心目標</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">將「數位賦能」與「醫學人文」在地化，並融入學生的核心能力。</p></div></div>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">執行方法</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">與 CBME (能力導向醫學教育) 框架結合。</p><p class="mt-2 text-gray-600 detail-item">融入課程、Milestone (里程碑) 與 EPA (可信賴專業活動)。</p></div></div>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">組織變革</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">建立具奇美特色的 CCC (臨床能力委員會)。</p><p class="mt-2 text-gray-600 font-semibold">CCC 新增委員角色：</p><ul class="list-disc pl-8 mt-2 text-gray-600 space-y-1"><li>教學中心同仁</li><li>數位賦能委員</li><li>醫學人文專責委員</li><li>品管中心人員</li></ul></div></div>
+                </div>
+            </div>
+
+            <!-- 軸線二: 課程與推廣 -->
+            <div class="flex flex-col space-y-6">
+                <div class="text-center pb-4 axis-title">
+                    <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center">
+                        <svg class="h-8 w-8 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></svg>
+                        主軸二：課程與推廣
+                    </h2>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">課程規劃</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">專注「個人」AI 能力培養，半年為一期，預計 7 月公佈約 20 餘堂課。</p><p class="mt-2 text-gray-600 detail-item">採小班制、自備電腦、院內同仁分工授課。</p></div></div>
+                </div>
+                <div class="card cursor-pointer active" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">課程實務應用範例</h3><div class="details"><p class="mt-2 text-gray-600 detail-item"><b>生成式 AI 聊天機器人：</b>建構互動式學習平台，訓練臨床知識整合與數位素養。</p><p class="mt-2 text-gray-600 detail-item"><b>虛擬臨床診療訓練 (V-DxM)：</b>透過 AI 虛擬病人，提供標準化、可重複的臨床技能練習。</p><p class="mt-2 text-gray-600 detail-item"><b>心電圖判讀 AI 平台：</b>利用真實病例大數據，提升學生 ECG 判讀準確率。</p><p class="mt-2 text-gray-600 detail-item"><b>AI 個人化學習系統：</b>自動從教材生成考題與摘要，實現個人化複習路徑。</p></div></div>
+                </div>
+            </div>
+
+            <!-- 軸線三: 認證與分級 -->
+            <div class="flex flex-col space-y-6">
+                <div class="text-center pb-4 axis-title">
+                     <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center">
+                        <svg class="h-8 w-8 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        主軸三：認證與分級
+                    </h2>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">最終目標</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">建立院內的 AI 能力分級與認證制度。</p></div></div>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">合作夥伴</h3><div class="details"><p class="mt-2 text-gray-600 detail-item">尋找具公信力的外部單位（如：資策會）合作。</p></div></div>
+                </div>
+                <div class="card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">可能模式</h3><div class="details"><p class="mt-2 text-gray-600 detail-item"><b>模式一：</b>派員受訓，成為院內種子稽核老師。</p><p class="mt-2 text-gray-600 detail-item"><b>模式二：</b>邀請外部單位直接來院進行稽核。</p></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 推動挑戰與策略 -->
+        <section class="mt-16">
+            <div class="text-center pb-4 mb-6 challenge-title">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    推動挑戰與策略
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card challenge-card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">挑戰：課程負擔</h3><div class="details"><p class="mt-2 text-gray-600 detail-item"><b>策略：</b>推動課程模組化，以選修形式彈性融入，避免排擠核心課程。</p></div></div>
+                </div>
+                <div class="card challenge-card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">挑戰：師資與教材</h3><div class="details"><p class="mt-2 text-gray-600 detail-item"><b>策略：</b>跨領域合作（如資工、公衛），建立資源共享平台，共同開發教材。</p></div></div>
+                </div>
+                <div class="card challenge-card cursor-pointer" onclick="toggleCard(this)">
+                    <div class="p-5"><h3 class="text-lg font-bold text-gray-900">挑戰：資源不均</h3><div class="details"><p class="mt-2 text-gray-600 detail-item"><b>策略：</b>將 AI 素養與資訊判讀納入基礎課程，並透過雲端平台提升資源可近性。</p></div></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        /**
+         * 根據卡片是否具有 'active' class 來設定其詳細內容區塊的最大高度。
+         * @param {HTMLElement} cardElement - 被點擊的卡片元素。
+         */
+        function setMaxHeight(cardElement) {
+            const details = cardElement.querySelector('.details');
+            if (details) {
+                if (cardElement.classList.contains('active')) {
+                    // 展開卡片：將 max-height 設為內容的實際高度
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                } else {
+                    // 收合卡片
+                    details.style.maxHeight = '0';
+                }
+            }
+        }
+
+        /**
+         * 更新所有目前為 'active' 狀態的卡片高度。
+         * 這對於初始加載和視窗大小調整時很有用。
+         */
+        function updateActiveCardsHeight() {
+            const activeCards = document.querySelectorAll('.card.active');
+            activeCards.forEach(card => {
+                setMaxHeight(card);
+            });
+        }
+
+        /**
+         * 卡片的點擊事件處理函數。
+         * @param {HTMLElement} cardElement - 被點擊的卡片元素。
+         */
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('active');
+            setMaxHeight(cardElement);
+        }
+
+        // --- 事件監聽器 ---
+
+        // 初始設定：DOM 加載完成後，立即設定一次高度，以求快速顯示。
+        document.addEventListener('DOMContentLoaded', updateActiveCardsHeight);
+
+        // 最終校正：頁面所有資源（如字體）加載完畢後，再次校正高度，確保準確性。
+        window.addEventListener('load', updateActiveCardsHeight);
+
+        // 適應性調整：當視窗大小改變時，重新計算高度，以適應文字換行等變化。
+        window.addEventListener('resize', updateActiveCardsHeight);
+    </script>
+
+</body>
+</html>
